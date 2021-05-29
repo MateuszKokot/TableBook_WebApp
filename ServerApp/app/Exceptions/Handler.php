@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -37,5 +38,16 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+    /**
+     * Ta metoda to nadpisanie metody domyślnej. Jeżeli Latavel nie znajdzie
+     * w tablli BD obiektu o wskazanym ID to zwróci JSON jak niżej ze statusem 404  */
+    public function  render($request, Throwable $e)
+    {
+        //Jeżeli
+        if ($e instanceof ModelNotFoundException && $request->wantsJson()) {
+            return response()->json(['message' => 'Not found'], 404);
+        }
+        parent::render($request, $e);
     }
 }

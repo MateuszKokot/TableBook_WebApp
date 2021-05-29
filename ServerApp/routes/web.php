@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/bookings',[\App\Http\Controllers\BookingController::class, 'index']);
+Route::get('/bookings/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'getBookings']);
+Route::get('/bookings/nextBite/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'nextBite']);
+Route::get('/bookings/previousBite/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'previousBite']);
+
+
 
