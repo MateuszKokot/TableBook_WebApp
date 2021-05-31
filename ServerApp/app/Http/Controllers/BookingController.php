@@ -118,6 +118,15 @@ class BookingController extends Controller
         return $this->convertToOutputFormJSON($daneZBD);
     }
 
+    public function getOneDayBookings($idRestaurant, $bookingDate, Request $request)
+    {
+
+        $daneZBD=  Booking::where('id_restaurant', '=', $idRestaurant)
+            ->where('booking_date', '=', $bookingDate)
+            ->get();
+        return $this->convertToOutputFormJSON($daneZBD);
+    }
+
     private function convertToOutputFormJSON($rawFormJSON)
     {
         $prettyFormJSON = [];

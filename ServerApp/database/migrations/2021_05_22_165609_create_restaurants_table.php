@@ -14,7 +14,7 @@ class CreateRestaurantsTable extends Migration
     public function up()
     {
         Schema::create('restaurants', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_restaurant');
             $table->string('restaurant_name');
             $table->string('address_province');
             $table->string('address_city');

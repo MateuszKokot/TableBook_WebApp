@@ -12,11 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::prefix('bookings')->group(function (){
+    Route::get('/',[\App\Http\Controllers\BookingController::class, 'index']);
+    Route::get('/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'getBookings']);
+    Route::get('/getOneDayBookings/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'getOneDayBookings']);
+    Route::get('/nextBite/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'nextBite']);
+    Route::get('/previousBite/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'previousBite']);
+});
 
-Route::get('/bookings',[\App\Http\Controllers\BookingController::class, 'index']);
-Route::get('/bookings/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'getBookings']);
-Route::get('/bookings/nextBite/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'nextBite']);
-Route::get('/bookings/previousBite/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'previousBite']);
 
 
 
