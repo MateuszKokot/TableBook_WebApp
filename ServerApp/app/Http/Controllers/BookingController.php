@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return Booking::paginate(2);
+        return Booking::paginate(10);
     }
 
     /**

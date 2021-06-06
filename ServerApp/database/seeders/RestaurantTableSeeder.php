@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Booking;
 use Illuminate\Database\Seeder;
-use function Illuminate\Database\Eloquent\Factories\Factory;
 
-class BookingTableSeeder extends Seeder
+class RestaurantTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +13,6 @@ class BookingTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Booking::factory(18250)->create();
-
+        \App\Models\Restaurant::factory(1)->create();
     }
 }

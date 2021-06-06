@@ -9,6 +9,8 @@ class Booking extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_booking';
+
     protected $hidden = [
         'updated_at',
         'created_at'
