@@ -43,12 +43,12 @@ class BookingFactory extends Factory
         $this->id_user_min = 1;
         $this->id_user_max = 999999;
         $this->start_date = '2021-06-07';
-        $this->booking_on_the_day = 5;
+        $this->booking_on_the_day = 2;
         $this->booking_counter = 1; // !!! DON'T TOUCH !!!
         $this->table_counter = 1; // !!! DON'T TOUCH !!!!
         $this->start_booking_time = '12:00';
         $this->max_number_of_hours_to_be_booked = 2;
-        $this->max_number_of_hours_of_break_between_bookings = 0;
+        $this->max_number_of_hours_of_break_between_bookings = 3;
         $this->table_minutes_list = array('00','15','30','45');
         $this->size_table_minutes_list = count($this->table_minutes_list); // !!! DON'T TOUCH !!!!
         $this->how_many_people_min = 1;
@@ -122,14 +122,24 @@ class BookingFactory extends Factory
             if ($this->booking_counter == 1) {
                 $old_hour = (integer)substr($this->start_booking_time, 0, 2);
                 $new_hour = rand($old_hour, $old_hour + $this->max_number_of_hours_of_break_between_bookings);
-                $minutes = $this->table_minutes_list[rand(0, $this->size_table_minutes_list - 1)];
+                if ($new_hour == $old_hour) {
+                    $old_minutes = array_search(substr($this->start_booking_time, 3, 2) ,$this->table_minutes_list);
+                    $minutes = $this->table_minutes_list[rand($old_minutes, $this->size_table_minutes_list - 1)];
+                } else {
+                    $minutes = $this->table_minutes_list[rand(0, $this->size_table_minutes_list - 1)];
+                }
                 $new_time = '' . $new_hour . ":" . $minutes . '';
                 $this->current_time = $new_time;
                 return $this->current_time;
             } else {
                 $old_hour = (integer)substr($this->current_time, 0, 2);
                 $new_hour = rand($old_hour, $old_hour + $this->max_number_of_hours_of_break_between_bookings);
-                $minutes = $this->table_minutes_list[rand(0, $this->size_table_minutes_list - 1)];
+                if ($new_hour == $old_hour) {
+                    $old_minutes = array_search(substr($this->current_time, 3, 2) ,$this->table_minutes_list);
+                    $minutes = $this->table_minutes_list[rand($old_minutes, $this->size_table_minutes_list - 1)];
+                } else {
+                    $minutes = $this->table_minutes_list[rand(0, $this->size_table_minutes_list - 1)];
+                }
                 $new_time = '' . $new_hour . ":" . $minutes . '';
                 $this->current_time = $new_time;
                 return $this->current_time;
@@ -139,10 +149,22 @@ class BookingFactory extends Factory
         //
 
         $to_hour = function (){
-            $old_hour = (integer)substr($this->current_time, 0, 2);
-            $new_hour = rand($old_hour, $old_hour + $this->max_number_of_hours_to_be_booked);
-            $minutes = $this->table_minutes_list[rand(0, $this->size_table_minutes_list - 1)];
-            $new_time = '' . $new_hour . ":" . $minutes . '';
+
+            $flag = true;
+            do {
+                $old_hour = (integer)substr($this->current_time, 0, 2);
+                $new_hour = rand($old_hour, $old_hour + $this->max_number_of_hours_to_be_booked);
+                $old_minutes = array_search(substr($this->current_time, 3, 2) ,$this->table_minutes_list);
+                $new_minutes = $this->table_minutes_list[rand(0, $this->size_table_minutes_list - 1)];
+                $validator = ($new_hour - $old_hour) * 60 + ((integer)$new_minutes - (integer)$this->table_minutes_list[$old_minutes]);
+                if ($validator <= 15){
+
+                } else {
+                    $new_time = '' . $new_hour . ":" . $new_minutes . '';
+                    if ($new_time != $this->current_time) {$flag = false;}
+                }
+
+            } while ($flag);
             $this->current_time = $new_time;
 
             return $this->current_time;

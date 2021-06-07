@@ -132,7 +132,8 @@ class BookingController extends Controller
     {
         $prettyFormJSON = [];
         foreach ($rawFormJSON as $item){
-            $prettyFormJSON[$item['booking_date']][$item['table_number']][] = $item ;
+            //$prettyFormJSON[$item['booking_date']][$item['table_number']][] = $item ;
+            $prettyFormJSON['stolik' . $item['table_number']][] = $item ;
         }
         return $prettyFormJSON;
     }
