@@ -1,0 +1,74 @@
+{
+    "2021-06-08": {
+        "stolik1": [{
+            "user": "user1",
+            "fromHour": "17:30",
+            "toHour": "18:30",
+            "ileOsob": "3"
+        }, {
+            "user": "user3",
+            "fromHour": "20:00",
+            "toHour": "21:30",
+            "ileOsob": "2"
+        }],
+        "stolik2": [{
+            "user": "user2",
+            "fromHour": "15:30",
+            "toHour": "17:00",
+            "ileOsob": "2"
+        }, {
+            "user": "user2",
+            "fromHour": "17:00",
+            "toHour": "18:30",
+            "ileOsob": "2"
+        }],
+        "stolik3": [{
+            "user": "user3",
+            "fromHour": "16:30",
+            "toHour": "17:30",
+            "ileOsob": "2"
+        }, {
+            "user": "user3",
+            "fromHour": "18:30",
+            "toHour": "19:30",
+            "ileOsob": "2"
+        }],
+        "stolik4": [{
+            "user": "user4",
+            "fromHour": "14:30",
+            "toHour": "15:30",
+            "ileOsob": "2"
+        }, {
+            "user": "user4",
+            "fromHour": "17:30",
+            "toHour": "18:30",
+            "ileOsob": "2"
+        }],
+        "stolik5": [{
+            "user": "user5",
+            "fromHour": "15:30",
+            "toHour": "16:45",
+            "ileOsob": "2"
+        }, {
+            "user": "user5",
+            "fromHour": "17:30",
+            "toHour": "18:30",
+            "ileOsob": "2"
+        }]
+    },
+    "2021-05-12": {
+        "stolik1": ["17:30", "18:30"],
+        "stolik2": ["15:00", "18:00"],
+        "stolik3": ["14:00", "15:00", "17:00"],
+        "stolik4": ["17:30"],
+        "stolik5": ["17:30"]
+    },
+    "2021-05-13": {
+        "stolik1": ["12:00", "15:00"],
+        "stolik2": ["15:00", "18:00"],
+        "stolik3": ["14:00", "15:00", "17:00"],
+        "stolik4": ["17:30"],
+        "stolik5": ["17:30"]
+    }
+
+}

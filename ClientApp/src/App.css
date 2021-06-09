@@ -1,0 +1,41 @@
+#root{
+    height: 60vh;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: center;
+}
+input{
+    display: inline-block;
+    text-align: center;
+    width: 130px;
+    margin-left: 10px;
+}
+.tableWrapper{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 120px;
+}
+.table{
+    height: 50px;
+    width: 50px;
+    background-color: green;
+    color: black;
+    text-align: center;
+    
+}
+.tableReserved{
+    height: 50px;
+    width: 50px;
+    background-color: red;
+    color: black;
+    text-align: center;
+}
+.tableClicked {
+    border: 5px blue solid;
+}
+p1{
+    margin-left: 10px;
+}
