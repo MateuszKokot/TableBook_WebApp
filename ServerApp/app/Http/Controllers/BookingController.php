@@ -37,7 +37,18 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $test = new Booking();
+        $test->id_restaurant = $request->id_restaurant;
+        $test->id_user = $request->id_user;
+        $test->booking_date = $request->booking_date;
+        $test->from_hour = $request->from_hour;
+        $test->to_hour = $request->to_hour;
+        $test->table_number = $request->table_number;
+        $test->how_many_people = $request->how_many_people;
+        $test->save();
+
+        return response($test->toArray(),200,);
+
     }
 
     /**
@@ -136,5 +147,25 @@ class BookingController extends Controller
             $prettyFormJSON['stolik' . $item['table_number']][] = $item ;
         }
         return $prettyFormJSON;
+    }
+
+    public function createBooking (Request $request) {
+
+//        $boooking = new Booking([
+//            'id_restaurant' => $request->get('id_restaurant')
+//
+//        ]);
+
+//        $product = new Product([
+//            'name' => $request->get('name'),
+//            'price' => $request->get('price'),
+//            'description'  => $request->get('description'),
+//            'active'  => $request->get('active')
+//        ]);
+        //$boooking->save();
+        //return response()->json($boooking);
+
+        //print_r("print");
+        return response($request->get('id_restaurant'), 200);
     }
 }

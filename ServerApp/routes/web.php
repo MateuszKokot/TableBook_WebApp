@@ -18,6 +18,7 @@ Route::prefix('bookings')->group(function (){
     Route::get('/getOneDayBookings/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'getOneDayBookings']);
     Route::get('/nextBite/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'nextBite']);
     Route::get('/previousBite/idRestaurant/{number}/bookingDate/{date}',[\App\Http\Controllers\BookingController::class, 'previousBite']);
+    Route::post('/create',[\App\Http\Controllers\BookingController::class, 'store']);
     Route::delete('/delete/idBooking/{number}',[\App\Http\Controllers\BookingController::class, 'destroy']);
 });
 
@@ -28,3 +29,4 @@ Route::prefix('tables')->group(function (){
 Route::prefix('restaurants')->group(function (){
     Route::get('/',[\App\Http\Controllers\RestaurantController::class, 'index']);
 });
+

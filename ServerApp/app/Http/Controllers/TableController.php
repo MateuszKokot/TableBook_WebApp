@@ -14,7 +14,7 @@ class TableController extends Controller
      */
     public function index()
     {
-        Table::paginate(10);
+        return Table::paginate(10);
     }
 
     /**
