@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(red, yellow);
+  border-radius: 25px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(black, yellow);
+  border-radius: 25px;
+  cursor: pointer;
+}
