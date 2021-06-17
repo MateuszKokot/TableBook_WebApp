@@ -1,0 +1,58 @@
+{
+    "11-05-2021": {
+        "stolik1": [{
+            "user": "user1",
+            "godzina": "17:30",
+            "naIle": "2",
+            "ileOsob": "3"
+        }, {
+            "user": "user3",
+            "godzina": "19:30",
+            "naIle": "1",
+            "ileOsob": "2"
+        }],
+        "stolik2": [{
+            "user": "user2",
+            "godzina": "16:30"
+        }, {
+            "user": "user2",
+            "godzina": "17:30"
+        }],
+        "stolik3": [{
+            "user": "user3",
+            "godzina": "16:30"
+        }, {
+            "user": "user3",
+            "godzina": "17:30"
+        }],
+        "stolik4": [{
+            "user": "user4",
+            "godzina": "16:30"
+        }, {
+            "user": "user4",
+            "godzina": "17:30"
+        }],
+        "stolik5": [{
+            "user": "user5",
+            "godzina": "16:30"
+        }, {
+            "user": "user5",
+            "godzina": "17:30"
+        }]
+    },
+    "12.05.2021": {
+        "stolik1": ["17:30", "18:30"],
+        "stolik2": ["15:00", "18:00"],
+        "stolik3": ["14:00", "15:00", "17:00"],
+        "stolik4": ["17:30"],
+        "stolik5": ["17:30"]
+    },
+    "13.05.2021": {
+        "stolik1": ["17:30", "18:30"],
+        "stolik2": ["15:00", "18:00"],
+        "stolik3": ["14:00", "15:00", "17:00"],
+        "stolik4": ["17:30"],
+        "stolik5": ["17:30"]
+    }
+
+}
