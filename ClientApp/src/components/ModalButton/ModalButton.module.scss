@@ -1,0 +1,45 @@
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: transparent;
+  border: none;
+}
+.hamburger__box {
+  background-color: #1e58ff;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+@mixin hamburger-line {
+  width: 12px;
+  height: 2px;
+  display: inline-block;
+  background-color: white;
+  position: absolute;
+}
+
+.hamburger__inner {
+  @include hamburger-line;
+  background: transparent;
+}
+.hamburger__inner::before,
+.hamburger__inner::after {
+  content: "";
+  @include hamburger-line;
+  left: 0;
+}
+.hamburger__inner::before {
+  transform: rotate(45deg);
+}
+.hamburger__inner::after {
+  transform: rotate(-45deg);
+}
